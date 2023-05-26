@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Responsive Photo Album</title>
+  <link rel="stylesheet" type="text/css" href="style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+  <!-- <div class="element hide">
+    <p></p>
+  </div> -->
+  <div class="overlay hide">
+    <img id="display" class="" src="img/1.jpg" alt="">
+    <div class="edits hide">
+      <img id="display2" src="img/1.jpg" alt="">
+      <div class="buttons">
+
+        <div class="colors">
+          <div class="text">
+            <p>Filters and Colors</p>
+          </div>
+          <div class="color-buttons">
+            <button id="red-button">RED</button>
+            <button id="green-button">GREEN</button>
+            <button id="blue-button">BLUE</button>
+            <button id="getcolor">Get the Dominant Color</button>
+          </div>
+
+        </div>
+
+        <div class="advanced">
+          <div class="text">
+            <p>Advanced</p>
+          </div>
+          <div class="advanced-buttons">
+            <button id="brightness">Increase brightness</button>
+            <button>Change Resolution</button>
+            <button id="grayscale">GrayScale</button>
+          </div>
+        </div>
+        <div class="orientation">
+          <div class="text">
+            <p>Rotate & Flip</p>
+          </div>
+          <div class="rotate">
+            <button id="horizontal">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                class="bi bi-symmetry-vertical" viewBox="0 0 16 16">
+                <path
+                  d="M7 2.5a.5.5 0 0 0-.939-.24l-6 11A.5.5 0 0 0 .5 14h6a.5.5 0 0 0 .5-.5v-11zm2.376-.484a.5.5 0 0 1 .563.245l6 11A.5.5 0 0 1 15.5 14h-6a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .376-.484zM10 4.46V13h4.658L10 4.46z" />
+              </svg>
+            </button>
+            <button id="vertical">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                class="bi bi-symmetry-horizontal" viewBox="0 0 16 16">
+                <path
+                  d="M13.5 7a.5.5 0 0 0 .24-.939l-11-6A.5.5 0 0 0 2 .5v6a.5.5 0 0 0 .5.5h11zm.485 2.376a.5.5 0 0 1-.246.563l-11 6A.5.5 0 0 1 2 15.5v-6a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 .485.376zM11.539 10H3v4.658L11.54 10z" />
+              </svg>
+            </button>
+            <button id="right">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                class="bi bi-arrow-clockwise" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2v1z" />
+                <path
+                  d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466z" />
+              </svg>
+            </button>
+            <button id="left">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                class="bi bi-arrow-counterclockwise" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M8 3a5 5 0 1 1-4.546 2.914.5.5 0 0 0-.908-.417A6 6 0 1 0 8 2v1z" />
+                <path
+                  d="M8 4.466V.534a.25.25 0 0 0-.41-.192L5.23 2.308a.25.25 0 0 0 0 .384l2.36 1.966A.25.25 0 0 0 8 4.466z" />
+              </svg>
+            </button>
+          </div>
+
+        </div>
+        <div class="save">
+          <button id="reset">Reset Filters</button>
+        </div>
+      </div>
+    </div>
+    <span id="X">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg"
+        viewBox="0 0 16 16">
+        <path
+          d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z" />
+      </svg>
+    </span>
+    <span id="filter">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-pencil"
+        viewBox="0 0 16 16">
+        <path
+          d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z" />
+      </svg>
+    </span>
+  </div>
+  <header>
+
+    <div class="page-name">
+      <h2>A Walk Down the <span>Memory Lane</span></h2>
+    </div>
+  </header>
+  <main>
+    <div class="filter-class">
+      <div>
+        <button class="active" data-item="all">All</button><button data-item="nature">Nature</button><button
+          data-item="people">People</button>
+      </div>
+    </div>
+    <div class="box">
+      <div class="dream">
+        <img class="people" src="img/1.jpg">
+        <img class="people" src="img/2.jpg">
+        <img class="people" src="img/3.jpg">
+        <img class="nature" src="img/4.jpg">
+        <img class="nature" src="img/5.jpg">
+        <img class="people" src="img/21.jpg">
+      </div>
+      <div class="dream ">
+        <img class="people" src="img/6.jpg">
+        <img src="img/7.jpg">
+        <img class="people" src="img/8.jpg">
+        <img class="people" src="img/9.jpg">
+        <img class="nature" src="img/10.jpg">
+        <img class="people" src="img/22.jpg">
+      </div>
+      <div class="dream tall">
+        <img class="nature" src="img/11.jpg">
+        <img src="img/12.jpg">
+        <img class="nature" src="img/13.jpg">
+        <img class="nature" src="img/14.jpg">
+        <img src="img/15.jpg">
+        <img class="people" src="img/23.jpg">
+      </div>
+      <div class="dream">
+        <img class="nature" src="img/16.jpg">
+        <img class="nature" src="img/17.jpg">
+        <img src="img/18.jpg">
+        <img src="img/19.jpg">
+        <img class="nature" src="img/20.jpg">
+        <img src="img/24.jpg">
+      </div>
+    </div>
+  </main>
+  <footer>
+    <div><small>&copy; Yashwanth Kiran 2023</small></div>
+  </footer>
+  <script src="js/script.js"></script>
+  <script src="js/filter.js"></script>
+</body>
+
+</html>
